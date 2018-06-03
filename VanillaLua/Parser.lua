@@ -388,7 +388,7 @@ do
 		while (true) do 
 			val = parseExp(stream)
 			table.insert(exp, val)
-			
+
 			if (stream:check(",")) then 
 				stream.next()
 			else
@@ -510,22 +510,16 @@ do
 	
 	local parseKeyword = function(stream)
 		if (stream:check("local")) then
-			warn(1)
 			return parseVariable(stream)
 		elseif (stream:check("do")) then
-			warn(2)
 			return parseDo(stream)
 		elseif (stream:check("function")) then
-			warn(3)
 			return parseFunction(stream, false)
 		elseif (stream:check("repeat")) then 
-			warn(4)
 			return parseRepeat(stream)
 		elseif (stream:check("if")) then
-			warn(5)
 			return parseIf(stream)
 		elseif (stream:check("while")) then
-			warn(6)
 			return parseWhile(stream)
 		end
 		warn(7)
